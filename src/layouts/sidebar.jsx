@@ -64,6 +64,15 @@ function Sidebar() {
                 <Li>
                     <Link to="/use-reducer">5 - useReducer Hook</Link>
                 </Li>
+                <Li>
+                    <Link to="/use-ref">6 - useRef Hook</Link>
+                </Li>
+                <Li>
+                    <Link to="/use-context">7 - useContext Hook</Link>
+                </Li>
+                <Li>
+                    <Link to="/use-custom">8 - useCustom Hook</Link>
+                </Li>
             </Ul>
         </Wrapper>
     )

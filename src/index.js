@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 import Sidebar from '~/layouts/sidebar'
 import Main from '~/layouts/main'
+import { ThemeProvider } from '~/layouts/context'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -26,10 +27,12 @@ const App = () => {
     return (
         <Router>
             <GlobalStyle />
-            <Container>
-                <Sidebar />
-                <Main />
-            </Container>
+            <ThemeProvider>
+                <Container>
+                    <Sidebar />
+                    <Main />
+                </Container>
+            </ThemeProvider>
         </Router>
     )
 }

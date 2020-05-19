@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/akursat/react-hooks#readme",
   "dependencies": {
+    "components": "^0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flexa": "^0.9.1",
