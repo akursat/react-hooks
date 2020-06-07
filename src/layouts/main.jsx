@@ -5,6 +5,12 @@ import UseStatePage from '~/pages/use-state-page'
 import UseEffectPage from '~/pages/use-effect-page'
 import UseReducerPage from '~/pages/use-reducer-page'
 import UseContextPage from '~/pages/use-context-page'
+import UseRefPage from '~/pages/use-ref-page'
+import UseMemoPage from '~/pages/use-memo-page'
+import UseCallbackPage from '~/pages/use-callback-page'
+import StartPage from '~/pages/start-page'
+import AboutHooksPage from '~/pages/about-page'
+
 import { ThemeContext } from '~layouts/context'
 
 const Wrapper = styled.main`
@@ -16,10 +22,10 @@ const Wrapper = styled.main`
     align-items: flex-start;
     outline: none;
     background-color: ${(props) => (props.isDark ? '#394b59' : '#f5f8fa')};
-    & p,
-    h1 {
-        color: ${(props) => (props.isDark ? 'darkgoldenrod' : '#182026')};
+    & h1 {
+        color: ${(props) => (props.isDark ? 'darkgoldenrod' : '#ef5777')};
     }
+    padding-top: 50px;
 `
 
 const Content = styled.div`
@@ -29,7 +35,7 @@ const Content = styled.div`
     > h1 {
         line-height: 40px;
         font-size: 36px;
-        color: #182026;
+        color: #ef5777;
         font-weight: 600;
     }
 `
@@ -38,32 +44,53 @@ const routes = [
     {
         path: '/',
         exact: true,
-        main: () => <h1>Home</h1>,
+        main: () => <StartPage />,
     },
     {
         path: '/about-hooks',
-        main: () => <h1>About hooks</h1>,
+        exact: true,
+        main: () => <AboutHooksPage />,
     },
     {
         path: '/use-state',
+        exact: true,
         main: () => <UseStatePage />,
     },
     {
         path: '/use-effect',
+        exact: true,
         main: () => <UseEffectPage />,
     },
     {
         path: '/use-reducer',
+        exact: true,
         main: () => <UseReducerPage />,
     },
     {
         path: '/use-context',
+        exact: true,
         main: () => <UseContextPage />,
+    },
+    {
+        path: '/use-ref',
+        exact: true,
+        main: () => <UseRefPage />,
+    },
+    {
+        path: '/use-memo',
+        exact: true,
+        main: () => <UseMemoPage />,
+    },
+    {
+        path: '/use-callback',
+        exact: true,
+        main: () => <UseCallbackPage />,
     },
 ]
 
 function Main() {
     const isDark = useContext(ThemeContext)
+
     return (
         <Wrapper isDark={isDark}>
             <Content>

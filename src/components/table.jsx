@@ -31,7 +31,7 @@ const TBody = styled.tbody`
     display: table-row-group;
     vertical-align: middle;
     > tr > td {
-        background: rgba(191, 204, 214, 0.15);
+        background: #61dafb;
         padding-bottom: 6px;
         padding-top: 6px;
     }

@@ -9,7 +9,7 @@ import { ThemeProvider } from '~/layouts/context'
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0px;
-    font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,Icons16,sans-serif';
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,Icons16,sans-serif;
   }
 `
 

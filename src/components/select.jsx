@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Button = styled.button`
+const Select = styled.select`
     box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2),
         inset 0 -1px 0 rgba(16, 22, 26, 0.1);
     background-image: linear-gradient(
@@ -24,8 +24,8 @@ const Button = styled.button`
     width: fit-content;
     &:hover {
         background-clip: padding-box;
-        background-color: rgba(167, 182, 194, 0.3);
+        background-color: #ebf1f5;
     }
 `
 
-export { Button }
+export { Select }

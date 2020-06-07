@@ -1,5 +1,14 @@
 import React, { useReducer } from 'react'
 import { Button } from '~components/button'
+import styled from 'styled-components'
+
+const Div = styled.div`
+    font-size: 5em;
+    text-align: center;
+    & p {
+        color: #ef5777;
+    }
+`
 
 const initialState = { count: 0 }
 
@@ -21,7 +30,7 @@ function UseReducerPage() {
     return (
         <div>
             <h1>useReducer Hook</h1>
-            <div>
+            <Div>
                 <p>Count: {count}</p>
                 <Button onClick={() => dispatch({ type: 'increment' })}>
                     +
@@ -32,7 +41,7 @@ function UseReducerPage() {
                 <Button onClick={() => dispatch({ type: 'reset' })}>
                     Reset
                 </Button>
-            </div>
+            </Div>
         </div>
     )
 }

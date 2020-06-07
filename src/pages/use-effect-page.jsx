@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { RedditTile } from '~components/reddit'
+import { Select } from '~components/select'
+
 const HOST = 'https://www.reddit.com/r'
 const TURKEY_URL = `${HOST}/turkey.json`
 const REACT_URL = `${HOST}/reactjs.json`
@@ -20,12 +22,12 @@ function UseEffectPage() {
     return (
         <div>
             <h1>useEffect Hook</h1>
-            <label>Subreddit seç:</label>
-            <select onChange={(e) => setSubReddit(e.target.value)}>
+            <label>Subreddit seç: </label>
+            <Select onChange={(e) => setSubReddit(e.target.value)}>
                 <option value={TURKEY_URL}>r/turkey</option>
                 <option value={REACT_URL}>r/react.js</option>
                 <option value={VUE_URL}>r/vue.js</option>
-            </select>
+            </Select>
             <ul>
                 {posts.map((post) => (
                     <li key={post.id}>{post.title}</li>

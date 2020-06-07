@@ -1,16 +1,28 @@
 import React, { useState } from 'react'
+import short from 'short-uuid'
 import { Table, TBody, THead } from '~components/table'
 import { Input, Label, FormElement } from '~components/form'
 import { Button } from '~components/button'
+import styled from 'styled-components'
+import { useLocalStorage } from '~utils/useLocalStorage'
+
+const ActionButton = styled.td`
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+        color: #ef5777;
+    }
+`
 
 function UseStatePage() {
+    const [users, setUsers] = useLocalStorage('formValues', [])
+    // const [users, setUsers] = useState([])
+
     const [formValues, setFormValues] = useState({
         name: '',
         email: '',
         company: '',
     })
-
-    const [users, setUsers] = useState([])
 
     const handleChange = (e) => {
         const target = e.target
@@ -19,7 +31,10 @@ function UseStatePage() {
 
     const addUser = (e) => {
         e.preventDefault()
-        setUsers((userArray) => [...userArray, formValues])
+        setUsers((userArray) => [
+            ...userArray,
+            { id: short.generate(), ...formValues },
+        ])
         setFormValues({
             name: '',
             email: '',
@@ -27,10 +42,10 @@ function UseStatePage() {
         })
     }
 
-    const removeUser = (userIndex) => {
+    const removeUser = (userId) => {
         setUsers((userArray) => {
             const unfilteredUsers = userArray.filter(
-                (val, index) => index !== userIndex
+                (user) => user.id !== userId
             )
             return unfilteredUsers
         })
@@ -40,7 +55,6 @@ function UseStatePage() {
         <div>
             <h1>useState Hook</h1>
             <form onSubmit={addUser}>
-                <h2>Form Example</h2>
                 <FormElement>
                     <Label htmlFor="name">Name</Label>
                     <Input
@@ -84,16 +98,14 @@ function UseStatePage() {
                     </tr>
                 </THead>
                 <TBody>
-                    {users.map((user, index) => (
-                        <tr key={index}>
+                    {users.map((user) => (
+                        <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.company}</td>
-                            <td>
-                                <span onClick={() => removeUser(index)}>
-                                    ❌
-                                </span>
-                            </td>
+                            <ActionButton onClick={() => removeUser(user.id)}>
+                                ❌
+                            </ActionButton>
                         </tr>
                     ))}
                 </TBody>

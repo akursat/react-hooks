@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import { Button } from '~components/button'
 import { ThemeUpdateContext, ThemeContext } from '~layouts/context'
+
 function UseContextPage() {
     const isDark = useContext(ThemeContext)
     const setDarkMode = useContext(ThemeUpdateContext)
+
     return (
         <div>
             <h1>useContext Hook</h1>
